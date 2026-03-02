@@ -33,6 +33,8 @@ def get_safe_path(path):
     try:
         # 如果是Windows绝对路径，只取文件名
         path_str = str(path).strip().strip('"').strip("'")
+        # 统一替换反斜杠为正斜杠，然后提取文件名
+        path_str = path_str.replace('\\', '/')
         # 提取文件名（去掉目录路径）
         filename = os.path.basename(path_str)
         return filename
