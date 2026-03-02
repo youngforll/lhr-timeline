@@ -1317,15 +1317,14 @@ def load_data(mtime):
         if "作品" in df.columns:
             df["作品"] = df["作品"].astype(str).str.strip()
         
-        # 优化路径清洗
+        # 优化路径清洗 - 只保留文件名
         cols_to_clean = ["素材1", "素材2", "素材3", "logo", "背景图"]
         for col in cols_to_clean:
             if col in df.columns:
                 df[col] = df[col].apply(lambda x: get_safe_path(x))
-                df[col] = df[col].apply(lambda x: os.path.normpath(x) if x else x)
         
         # 临时调试：显示第一条记录的清洗后路径
-        st.write("DEBUG: 第一条记录素材1清洗后路径=", df.iloc[0].get("素材1") if not df.empty else "N/A")
+        st.write("DEBUG2: 清洗后路径=", df.iloc[0].get("素材1") if not df.empty else "N/A")
                 
         # 日期处理
         date_cols = ["开机", "杀青", "上映"]
