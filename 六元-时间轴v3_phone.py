@@ -1289,15 +1289,28 @@ if 'selected_work' not in st.session_state:
 # === 5. 数据读取 ===
 FILE_PATH = "六元_作品时间轴.xlsx"
 
+# 调试信息
+st.write(f"当前工作目录: {os.getcwd()}")
+st.write(f"文件路径: {FILE_PATH}")
+st.write(f"文件是否存在: {os.path.exists(FILE_PATH)}")
+if os.path.exists(FILE_PATH):
+    st.write(f"文件大小: {os.path.getsize(FILE_PATH)} bytes")
+
 @st.cache_data(ttl=300)  # 缓存5分钟
 def load_data(mtime): 
     """加载数据并优化处理"""
     try:
         if not os.path.exists(FILE_PATH):
-            logger.error(f"Data file not found: {FILE_PATH}")
+            st.error(f"❌ 数据文件不存在: {FILE_PATH}")
             return pd.DataFrame()
         
-        df = pd.read_excel(FILE_PATH)
+        try:
+            df = pd.read_excel(FILE_PATH, engine='openpyxl')
+        except Exception as e:
+            st.error(f"❌ 读取Excel失败: {e}")
+            return pd.DataFrame()
+        
+        st.success(f"✅ 成功读取 {len(df)} 条记录")
         
         # 列名映射
         rename_map = {"图1": "素材1", "图2": "素材2", "图3": "素材3"}
