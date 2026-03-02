@@ -33,12 +33,16 @@ def get_safe_path(path):
     try:
         # 如果是Windows绝对路径，只取文件名
         path_str = str(path).strip().strip('"').strip("'")
+        st.write(f"DEBUG3: 输入={path_str[:50]}")
         # 统一替换反斜杠为正斜杠，然后提取文件名
         path_str = path_str.replace('\\', '/')
+        st.write(f"DEBUG3: 替换后={path_str[:50]}")
         # 提取文件名（去掉目录路径）
         filename = os.path.basename(path_str)
+        st.write(f"DEBUG3: 输出={filename}")
         return filename
-    except Exception:
+    except Exception as e:
+        st.write(f"DEBUG3: 错误={e}")
         return None
 
 def find_file_with_extensions(base_path, extensions):
