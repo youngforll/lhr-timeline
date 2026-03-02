@@ -1287,7 +1287,7 @@ if 'selected_work' not in st.session_state:
     st.session_state['selected_work'] = None
 
 # === 5. 数据读取 ===
-FILE_PATH = str(APP_DIR / "六元_作品时间轴.xlsx")
+FILE_PATH = "六元_作品时间轴.xlsx"
 
 @st.cache_data(ttl=300)  # 缓存5分钟
 def load_data(mtime): 
