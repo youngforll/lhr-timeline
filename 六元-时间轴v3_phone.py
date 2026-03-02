@@ -27,11 +27,15 @@ logger = logging.getLogger(__name__)
 APP_DIR = Path(__file__).resolve().parent
 
 def get_safe_path(path):
-    """安全处理文件路径"""
+    """安全处理文件路径 - 只保留文件名，去除Windows绝对路径"""
     if pd.isna(path) or str(path) in ['nan', '']:
         return None
     try:
-        return str(path).strip().strip('"').strip("'")
+        # 如果是Windows绝对路径，只取文件名
+        path_str = str(path).strip().strip('"').strip("'")
+        # 提取文件名（去掉目录路径）
+        filename = os.path.basename(path_str)
+        return filename
     except Exception:
         return None
 
