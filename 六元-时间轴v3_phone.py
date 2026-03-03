@@ -33,16 +33,12 @@ def get_safe_path(path):
     try:
         # 如果是Windows绝对路径，只取文件名
         path_str = str(path).strip().strip('"').strip("'")
-        st.write(f"DEBUG3: 输入={path_str[:50]}")
         # 统一替换反斜杠为正斜杠，然后提取文件名
         path_str = path_str.replace('\\', '/')
-        st.write(f"DEBUG3: 替换后={path_str[:50]}")
         # 提取文件名（去掉目录路径）
         filename = os.path.basename(path_str)
-        st.write(f"DEBUG3: 输出={filename}")
         return filename
-    except Exception as e:
-        st.write(f"DEBUG3: 错误={e}")
+    except Exception:
         return None
 
 def find_file_with_extensions(base_path, extensions):
@@ -484,7 +480,7 @@ st.markdown("""
     }
     
     .main-title {
-        font-family: 'SimSun', '宋体', serif;
+        font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', serif;
         font-size: 3.5rem;
         letter-spacing: 8px;
         color: #1A1A1A;
@@ -510,7 +506,7 @@ st.markdown("""
         font-size: 0.75rem;
         font-style: italic;
         color: #666666;
-        margin: 15px 20px 0 95px;
+        margin: 15px 20px 0 60px;
         text-align: right;
         animation: titleFadeIn 2s ease-out 0.6s both;
     }
@@ -855,7 +851,7 @@ st.markdown("""
         
         /* [Mobile] 标题字体大小调整 */
         .main-title {
-            font-size: 2.5rem !important;
+            font-size: 2.0rem !important;
             letter-spacing: 6px !important;
         }
         
@@ -1329,9 +1325,6 @@ def load_data(mtime):
             if col in df.columns:
                 df[col] = df[col].apply(lambda x: get_safe_path(x))
         
-        # 临时调试：显示第一条记录的清洗后路径
-        st.write("DEBUG2: 清洗后路径=", df.iloc[0].get("素材1") if not df.empty else "N/A")
-                
         # 日期处理
         date_cols = ["开机", "杀青", "上映"]
         for col in date_cols:
