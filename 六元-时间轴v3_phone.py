@@ -13,7 +13,7 @@ from io import BytesIO
 
 # === 1. 页面配置 ===
 st.set_page_config(
-    page_title="六元宇宙·VOGUE版", 
+    page_title="lhr-timeline", 
     layout="wide", 
     page_icon="🎬",
     initial_sidebar_state="collapsed"
@@ -226,15 +226,15 @@ st.markdown("""
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             border: 1px solid rgba(0,0,0,0.08);
             color: #1A1A1A;
-            border-radius: 12px;
-            padding: 12px 20px;
-            margin: 8px 0;
+            border-radius: 8px;
+            padding: 8px 16px;
+            margin: 4px 0;
             font-family: 'Noto Serif SC', serif;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 500;
+            font-size: 0.85rem;
             letter-spacing: 0.5px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
         }
         .stButton > button:hover {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
@@ -368,7 +368,7 @@ st.markdown("""
     
     .quote-text {
         font-family: 'Noto Serif SC', serif;
-        font-size: 2.2rem;
+        font-size: 1.6rem;
         line-height: 1.6;
         color: #1a1a1a;
         text-align: center;
@@ -480,7 +480,7 @@ st.markdown("""
     }
     
     .main-title {
-        font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', serif;
+        font-family: 'Noto Serif SC', serif;
         font-size: 3.5rem;
         letter-spacing: 8px;
         color: #1A1A1A;
