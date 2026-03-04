@@ -194,7 +194,7 @@ st.markdown("""
         color: #333333 !important;  /* 深灰字体 */
     }
     
-    h1, h2, h3, .serif-font, .hero-title, .quote-text {
+    h1, h2, h3, .serif-font, .hero-title, .quote-text, .mobile-work-title, .vogue-title {
         font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif !important;
         font-weight: 300 !important;
         color: #1A1A1A !important;  /* 深黑 */
@@ -220,7 +220,7 @@ st.markdown("""
     }
     
     /* 移动端按钮样式优化 */
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 600px) {
         .stButton > button {
             width: 100%;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -368,7 +368,7 @@ st.markdown("""
     
     .quote-text {
         font-family: 'Noto Serif SC', serif;
-        font-size: 1.6rem;
+        font-size: 1.6rem !important;
         line-height: 1.6;
         color: #1a1a1a;
         text-align: center;
@@ -975,7 +975,7 @@ st.markdown("""
         }
         
         .mobile-work-title {
-            font-family: 'Noto Serif SC', serif;
+            font-family: 'Noto Serif SC', serif !important;
             font-size: 1.2rem;
             font-weight: 700;
             color: #ffffff;
@@ -1588,14 +1588,14 @@ def show_timeline():
     # 关闭桌面端容器
     st.markdown("""
         </div>
-        <div class="desktop-note">*仅列出主要作品，信息更新至2026.2.20，部分作品因拍摄时间无法确认，采用估算时间。</div>
+        <div class="desktop-note">*仅列出主要作品，信息更新至2026.3.8，部分作品因拍摄时间无法确认，采用估计时间</div>
     """, unsafe_allow_html=True)
     
     # [Mobile] 移动端垂直时间轴
     if not df.empty:
         # 添加手机端注释
         st.markdown("""
-        <div class="mobile-note">*仅列出主要作品，信息更新至2026.2.20<br>下方所列月份为开机时间<br>部分作品因拍摄时间无法确认，采用估算时间</div>
+        <div class="mobile-note">*仅列出主要作品，信息更新至2026.3.8<br>下方所列月份为开机时间<br>部分作品因拍摄时间无法确认，采用估计时间</div>
         """, unsafe_allow_html=True)
         
         # 按开机时间排序，获取有效作品
@@ -1892,7 +1892,7 @@ def show_detail():
                     .banner-content {{ margin-top: -120px; }}
                 }}
                 .vogue-title {{
-                    font-family: 'Noto Serif SC', serif;
+                    font-family: 'Noto Serif SC', serif !important;
                     font-size: 2.9rem;
                     font-weight: 700;
                     margin: 0 0 10px 0;
