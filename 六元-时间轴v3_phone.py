@@ -194,7 +194,7 @@ st.markdown("""
         color: #333333 !important;  /* 深灰字体 */
     }
     
-    h1, h2, h3, .serif-font, .hero-title, .quote-text, .mobile-work-title, .vogue-title {
+    h1, h2, h3, .serif-font, .hero-title, .quote-text {
         font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif !important;
         font-weight: 300 !important;
         color: #1A1A1A !important;  /* 深黑 */
@@ -220,7 +220,7 @@ st.markdown("""
     }
     
     /* 移动端按钮样式优化 */
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 598px) {
         .stButton > button {
             width: 100%;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -368,7 +368,7 @@ st.markdown("""
     
     .quote-text {
         font-family: 'Noto Serif SC', serif;
-        font-size: 1.6rem !important;
+        font-size: 1.5rem;
         line-height: 1.6;
         color: #1a1a1a;
         text-align: center;
@@ -795,14 +795,14 @@ st.markdown("""
     }
 
     /* 桌面端隐藏手机端注释 */
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 599px) {
         .mobile-note {
             display: none !important;
         }
     }
 
-    /* [Mobile] 移动端适配 - 768px以下 */
-    @media only screen and (max-width: 768px) {
+    /* [Mobile] 移动端适配 - 598px以下 */
+    @media only screen and (max-width: 598px) {
         /* 页面容器过渡 */
         .timeline-container, .detail-container {
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -975,7 +975,7 @@ st.markdown("""
         }
         
         .mobile-work-title {
-            font-family: 'Noto Serif SC', serif !important;
+            font-family: 'Noto Serif SC', serif;
             font-size: 1.2rem;
             font-weight: 700;
             color: #ffffff;
@@ -1892,7 +1892,7 @@ def show_detail():
                     .banner-content {{ margin-top: -120px; }}
                 }}
                 .vogue-title {{
-                    font-family: 'Noto Serif SC', serif !important;
+                    font-family: 'Noto Serif SC', serif;
                     font-size: 2.9rem;
                     font-weight: 700;
                     margin: 0 0 10px 0;
@@ -1929,7 +1929,7 @@ def show_detail():
                 }}
                 
                 /* [Mobile] 详情页背景图横版呈现 */
-                @media (max-width: 768px) {{
+                @media (max-width: 598px) {{
                     .top-banner-v2 {{
                         height: auto !important;
                         min-height: 260px !important;
